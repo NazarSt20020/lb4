@@ -1,0 +1,74 @@
+using System;
+
+namespace ConsoleApp11
+{
+    class Detail
+    {
+        protected string Name { get; set; }
+        protected string Serial { get; set; }
+        public Detail(string name, string ser)
+        {
+            Name = name;
+            Serial = ser;
+        }
+        public void Display()
+        {
+            Console.WriteLine(Name + " " + Serial);
+            Console.WriteLine(" ");
+        }
+    }
+    class Mech : Detail
+    {
+        protected string Application { get; set; }
+        public Mech(string name, string ser, string apl)
+        : base(name, ser)
+        {
+            Application = apl;
+            Console.WriteLine("Application: " + Application);
+        }
+
+    }
+
+    class Unit : Detail
+    {
+        protected string Place { get; set; }
+        public Unit(string name, string ser, string pl)
+        : base(name, ser)
+        {
+            Place = pl;
+            Console.WriteLine("Place: " + Place);
+        }
+    }
+
+    class Product : Detail
+    {
+        protected string Price { get; set; }
+        public Product(string name, string ser, string pr)
+        : base(name, ser)
+        {
+            Price = pr;
+            Console.WriteLine("Price: " + Price);
+        }
+    }
+
+
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Detail d = new Detail("Bolt", "ZX345");
+            d.Display();
+            Mech m = new Mech("Differential", "SV36", "Rotating power transmission mechanism");
+            m.Display();
+            Unit u = new Unit("Left Differential", "SV3", "Left");
+            u.Display();
+            Product p = new Product("Bottom car", "BC31", "1000$");
+            p.Display();
+            Console.Read();
+        }
+
+    }
+
+}
